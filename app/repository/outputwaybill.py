@@ -18,29 +18,29 @@ def save(x):
     return x
 
 
-def db_get_outputwaybill():
+def db_get_output_waybill():
     session = new_session()
     outputwaybill1 = session.query(OutputWaybillBase).all()
     return outputwaybill1
 
 
-def db_get_outputwaybill_by_id(ow_id):
+def db_get_output_waybill_by_id(ow_id):
     session = new_session()
-    outputwaybill = session.query(OutputWaybillBase).filter_by(id=ow_id).first()
-    return outputwaybill
+    output_waybill = session.query(OutputWaybillBase).filter_by(id=ow_id).first()
+    return output_waybill
 
 
-def db_put_change_outputwaybill(ow_id, number,status):
+def db_put_change_output_waybill(ow_id, number, status):
     session = new_session()
-    outputwaybill1 = session.query(OutputWaybillBase).filter_by(id=ow_id).first()
-    outputwaybill1.number = number
-    outputwaybill1.status=status
+    output_waybill = session.query(OutputWaybillBase).filter_by(id=ow_id).first()
+    output_waybill.number = number
+    output_waybill.status = status
     session.commit()
-    session.refresh(outputwaybill1)
-    return outputwaybill1
+    session.refresh(output_waybill)
+    return output_waybill
 
 
-def db_delete_outputwaybill(ow_id):
+def db_delete_output_waybill(ow_id):
     session = new_session()
     session.query(OutputWaybillBase).filter_by(id=ow_id).delete()
     session.commit()
